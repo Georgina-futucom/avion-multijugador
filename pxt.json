@@ -1,0 +1,27 @@
+{
+    "name": "avion-multijugador",
+    "version": "0.0.1",
+    "description": "Mapa de desafíos Batalla de Aviones",
+    "dependencies": {
+        "device": "*"
+    },
+    "files": [
+        "README.md",
+        "skillmap.md",
+        "tutoriales/actividad1.md",
+        "tutoriales/actividad2.md",
+        "tutoriales/actividad3.md",
+        "tutoriales/actividad4.md",
+        "tutoriales/actividad5.md",
+        "tutoriales/actividad6.md"
+    ],
+    "testFiles": [],
+    "targetVersions": {
+        "target": "1.0.16",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
