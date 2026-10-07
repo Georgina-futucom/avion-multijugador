@@ -10,7 +10,7 @@
 ## aviones
 
 * name: Batalla de Aviones
-* description: Seis desafíos para construir un juego multijugador de aviones en MakeCode Arcade.
+* description: Siete desafíos para construir un juego multijugador de aviones en MakeCode Arcade.
 * completionUrl: https://raw.githubusercontent.com/Georgina-futucom/avion-multijugador/main/certificados/certificado.pdf
 
 ### aviones-actividad1
@@ -64,8 +64,17 @@
 * type: tutorial
 * description: Agregá una cuenta regresiva y decidí quién gana la batalla.
 * tags: intermedio, condicionales, fin del juego
-* next: aviones-final
+* next: aviones-actividad7
 * url: https://github.com/Georgina-futucom/avion-multijugador/tutoriales/actividad6
+
+### aviones-actividad7
+
+* name: Tres vidas
+* type: tutorial
+* description: Dale tres vidas a cada piloto y decidí quién gana cuando alguien se queda sin vidas.
+* tags: intermedio, vidas, eventos
+* next: aviones-final
+* url: https://github.com/Georgina-futucom/avion-multijugador/tutoriales/actividad7
 
 ### aviones-final
 
