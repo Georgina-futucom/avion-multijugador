@@ -131,3 +131,27 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 🎮 Apretá **A** (o la tecla **espacio**) en el simulador.
 
 ¿Salen dos láseres hacia arriba, uno de cada lado del avión? ¡Bien hecho, piloto!
+
+```template
+scene.setBackgroundImage(img`
+    9 9 9 9 9 9 9 9
+    9 9 1 1 9 9 9 9
+    9 1 1 1 1 9 9 9
+    9 9 9 9 9 9 9 9
+`)
+let avion = sprites.create(img`
+    . . . . . . . 2 2 . . . . . . .
+    . . . . . . . 2 2 . . . . . . .
+    . . . . . . . 8 8 . . . . . . .
+    . . . . . . 5 5 5 5 . . . . . .
+    . . . . . 1 5 5 5 5 1 . . . . .
+    . 1 1 1 1 1 5 5 5 5 1 1 1 1 1 .
+    1 1 1 1 1 1 8 8 8 8 1 1 1 1 1 1
+    . . . . . 1 1 2 2 1 1 . . . . .
+    . . . 1 1 1 1 2 2 1 1 1 1 . . .
+    . . . . . . 1 8 8 1 . . . . . .
+`, SpriteKind.Player)
+avion.setPosition(40, 100)
+controller.moveSprite(avion, 110, 0)
+avion.setStayInScreen(true)
+```

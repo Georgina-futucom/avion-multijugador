@@ -162,6 +162,77 @@ sprites.onOverlap(SpriteKind.Laser2, SpriteKind.Enemy, function (sprite, otherSp
 
 ¿Cada avión suma sus propios puntos? ¡Desafiá a un compañero!
 
+```template
+namespace SpriteKind {
+    export const Laser = SpriteKind.create()
+}
+let disparo1: Sprite = null
+let disparo2: Sprite = null
+scene.setBackgroundImage(img`
+    9 9 9 9 9 9 9 9
+    9 9 1 1 9 9 9 9
+    9 1 1 1 1 9 9 9
+    9 9 9 9 9 9 9 9
+`)
+let avion = sprites.create(img`
+    . . . . . . . 2 2 . . . . . . .
+    . . . . . . . 2 2 . . . . . . .
+    . . . . . . . 8 8 . . . . . . .
+    . . . . . . 5 5 5 5 . . . . . .
+    . . . . . 1 5 5 5 5 1 . . . . .
+    . 1 1 1 1 1 5 5 5 5 1 1 1 1 1 .
+    1 1 1 1 1 1 8 8 8 8 1 1 1 1 1 1
+    . . . . . 1 1 2 2 1 1 . . . . .
+    . . . 1 1 1 1 2 2 1 1 1 1 . . .
+    . . . . . . 1 8 8 1 . . . . . .
+`, SpriteKind.Player)
+avion.setPosition(40, 100)
+controller.moveSprite(avion, 110, 0)
+avion.setStayInScreen(true)
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    disparo1 = sprites.createProjectileFromSprite(img`
+        . 5 .
+        . 2 .
+        . 2 .
+        . 5 .
+    `, avion, 0, -140)
+    disparo1.x += -6
+    disparo1.setKind(SpriteKind.Laser)
+    disparo2 = sprites.createProjectileFromSprite(img`
+        . 5 .
+        . 2 .
+        . 2 .
+        . 5 .
+    `, avion, 0, -140)
+    disparo2.x += 6
+    disparo2.setKind(SpriteKind.Laser)
+})
+let carita: Sprite = null
+game.onUpdateInterval(800, function () {
+    carita = sprites.createProjectileFromSide(img`
+        . 5 5 5 5 .
+        5 5 5 5 5 5
+        5 f 5 5 f 5
+        5 5 5 5 5 5
+        5 f f f f 5
+        . 5 5 5 5 .
+    `, 0, randint(50, 90))
+    carita.setKind(SpriteKind.Enemy)
+    carita.x = randint(10, 150)
+})
+info.setScore(0)
+sprites.onOverlap(SpriteKind.Laser, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(sprite, effects.disintegrate, 500)
+    sprites.destroy(otherSprite, effects.fire, 100)
+    music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+    info.changeScoreBy(1)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.disintegrate, 100)
+    music.play(music.melodyPlayable(music.bigCrash), music.PlaybackMode.UntilDone)
+})
+```
+
 ```package
 multiplayer
 ```
