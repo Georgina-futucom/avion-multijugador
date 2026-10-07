@@ -36,8 +36,8 @@ info.onCountdownEnd(function () {
 
 En la condición del ``||logic:si||``, poné una comparación ``||logic:0 > 0||``.
 
-* A la izquierda: ``||mp:puntaje del jugador 1||``
-* A la derecha: ``||mp:puntaje del jugador 2||``
+* A la izquierda: el bloque de puntaje del **player 1** (en inglés dice *player 1 score*)
+* A la derecha: el mismo bloque, cambiando **player 1** por **player 2**
 
 Los dos bloques de puntaje están en ``||mp:Multijugador||``.
 
@@ -53,10 +53,10 @@ info.onCountdownEnd(function () {
 
 ## {Anunciar al ganador}
 
-Entrá en ``||mp:Multijugador||`` y arrastrá ``||mp:fin del juego, gana jugador 1||``:
+Entrá en ``||mp:Multijugador||`` y buscá el bloque de **fin del juego** que dice que gana **player 1** (en inglés, *player 1 wins*):
 
-* Adentro del **si**: gana el **jugador 1**.
-* Adentro del **si no**: gana el **jugador 2**.
+* Adentro del **si**: gana **player 1**.
+* Adentro del **si no**: otro igual, cambiando a **player 2**.
 
 ```blocks
 info.onCountdownEnd(function () {

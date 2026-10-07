@@ -11,8 +11,14 @@ Cada jugador va a tener su propio puntaje. ¿Quién derribará más caritas?
 
 Primero le avisamos al juego que **avion** es del **jugador 1**.
 
-Entrá en ``||mp:Multijugador||`` y arrastrá
-``||mp:establecer sprite del jugador 1 a avion||`` justo debajo de donde creás el avión.
+Entrá en ``||mp:Multijugador||`` y arrastrá el bloque
+``||mp:set player 1 sprite to||`` justo debajo de donde creás el avión.
+
+⚠️ Ese bloque viene con un **objeto gris** adentro. Arrastrá ese objeto gris a la caja de herramientas para borrarlo y, en su lugar, poné la variable ``||variables:avion||`` (está en ``||variables:Variables||``).
+
+Tiene que quedar: **set player 1 sprite to avion**.
+
+💬 Los bloques de Multijugador aparecen en inglés: *player* = jugador, *sprite* = personaje.
 
 ```blocks
 let avion = sprites.create(img`
@@ -36,7 +42,7 @@ Dibujalo con **otros colores** para distinguirlo ✈️.
 
 Después agregá:
 
-* ``||mp:establecer sprite del jugador 2 a avion2||``
+* ``||mp:set player 1 sprite to||``: cambiá **player 1** por **player 2**, borrá el objeto gris y poné la variable **avion2**
 * ``||sprites:establecer posición de avion2 a x 120 y 100||``
 
 ```blocks
@@ -57,7 +63,7 @@ avion2.setPosition(120, 100)
 ## {Mover el segundo avión}
 
 Entrá en ``||mp:Multijugador||`` y arrastrá
-``||mp:mover jugador 2 con botones||``. Apretá el **+** y poné **vx 110** y **vy 0**.
+``||mp:move player 1 with buttons||``. Cambiá **player 1** por **player 2**, apretá el **+** y poné **vx 110** y **vy 0**.
 
 Después agregá ``||sprites:establecer avion2 permanecer en pantalla activado||``.
 
@@ -121,7 +127,7 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
 Buscá el evento ``||sprites:al superponerse Laser con Enemigo||``.
 
 Sacá el bloque ``||info:cambiar puntaje por 1||`` y en su lugar poné
-``||mp:cambiar puntaje del jugador 1 por 1||`` de ``||mp:Multijugador||``.
+``||mp:change player 1 score by 1||`` de ``||mp:Multijugador||``.
 
 ```blocks
 namespace SpriteKind {
@@ -139,7 +145,7 @@ sprites.onOverlap(SpriteKind.Laser, SpriteKind.Enemy, function (sprite, otherSpr
 
 Duplicá ese evento completo.
 
-En la copia, cambiá **Laser** por **Laser2** y **jugador 1** por **jugador 2**.
+En la copia, cambiá **Laser** por **Laser2** y **player 1** por **player 2**.
 
 ```blocks
 namespace SpriteKind {
